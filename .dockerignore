@@ -1,0 +1,13 @@
+./node_modules
+./dist
+
+./apps/web/.next
+./apps/web/node_modules
+./apps/web/.env.prod
+./apps/web/.env.local
+
+
+./apps/backend-auth/.env.prod
+./apps/backend-auth/.env
+./apps/backend-auth/node_modules
+./apps/backend-auth/dist

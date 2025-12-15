@@ -1,0 +1,28 @@
+{
+  "name": "@repo/zod-input-validation",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "build": "tsc"
+  },
+  "exports": {
+  ".": {
+    "types": "./dist/input.d.ts",
+    "default": "./dist/input.js"
+  },
+  "./template-types": {
+    "types": "./dist/backend-auth/template-types.d.ts",
+    "default": "./dist/backend-auth/template-types.js"
+  }
+},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "zod": "^3.24.3"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}
