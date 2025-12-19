@@ -5,8 +5,9 @@ export async function fetchCards(
   items: number,
   categoryName: string,
 ) {
+  console.log("&&&&&&&&&&&&&&&&&&&&&&&")
   const res = await axios.post(
-    `${process.env.NEXT_PUBLIC_Backend_URL}/wedding/get`,
+    `http://bee.10mindesign.shop/wedding/get`,
     {
       page,
       items,
