@@ -7,13 +7,21 @@ export async function fetchCards(
 ) {
   console.log("&&&&&&&&&&&&&&&&&&&&&&&")
   const res = await axios.post(
-    `http://backend-auth.default.svc.cluster.local/wedding/get`,
+    `http://backend-auth.default.svc.cluster.local:8080/wedding/get`,
     {
       page,
       items,
       categoryName,
     },
   );
-
+  const res2 = await axios.post(
+    `http://backend-auth.default.svc.cluster.local:80/wedding/get`,
+    {
+      page,
+      items,
+      categoryName,
+    },
+  );
+  console.log(res2)
   return res.data;
 }
