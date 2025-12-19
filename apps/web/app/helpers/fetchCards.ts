@@ -13,7 +13,6 @@ export async function fetchCards(
       items,
       categoryName,
     },
-    {withCredentials:true}
   );
   console.log(res)
   return res.data;
