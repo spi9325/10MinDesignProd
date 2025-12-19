@@ -7,7 +7,7 @@ export async function fetchCards(
 ) {
   console.log("&&&&&&&&&&&&&&&&&&&&&&&")
   const res = await axios.post(
-    `http://bee.10mindesign.shop/wedding/get`,
+    `http://backend-auth.default.svc.cluster.local/wedding/get`,
     {
       page,
       items,
