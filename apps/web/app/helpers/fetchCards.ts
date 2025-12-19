@@ -15,7 +15,7 @@ export async function fetchCards(
     },
   );
   const res2 = await axios.post(
-    `http://backend-auth.default.svc.cluster.local:80/wedding/get`,
+    `http://bee.10mindesigns.shop/wedding/get`,
     {
       page,
       items,
