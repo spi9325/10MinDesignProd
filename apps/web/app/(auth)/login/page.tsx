@@ -14,7 +14,7 @@ import { redirect } from "next/navigation";
 import { CiLock } from "react-icons/ci";
 
 export default async function Page() {
-  let session = await auth();
+  const session = await auth();
   if (session?.user) return redirect("/");
 
   return (

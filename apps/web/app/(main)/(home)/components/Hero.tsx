@@ -37,7 +37,7 @@ export function Hero() {
     : [...category, ...category];
 
   useGSAP(() => {
-    let mm = gsap.matchMedia();
+    const mm = gsap.matchMedia();
     mm.add("(max-width: 768px)", () => {
       gsap.set("#five-min-design", {
         transform: "scale(0)",

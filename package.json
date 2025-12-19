@@ -14,17 +14,18 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "db:generate": "cd packages/database && pnpm run generate && cd ../..",
     "lint": "turbo run lint",
+    "lint:fix": "turbo run lint -- --fix",
     "start:backend":"cd apps/backend-auth && pnpm run start",
     "start:web":"cd apps/web && pnpm start"
   },
   "devDependencies": {
-    "prettier": "^3.2.5",
+    "prettier": "^3.7.4",
     "tsx": "4.19.1",
-    "turbo": "^2.5.3"
+    "turbo": "^2.6.3"
   },
   "engines": {
     "node": ">=18"
   },
-  "name": "with-prisma",
+  "name": "10mindesign",
   "packageManager": "pnpm@10.11.0"
 }

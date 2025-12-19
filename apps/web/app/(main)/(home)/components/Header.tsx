@@ -46,7 +46,7 @@ export function Header({ disableAnimation, authData,disableLoginButton }: propTy
   };
 
   useGSAP(() => {
-    let mm = gsap.matchMedia();
+    const mm = gsap.matchMedia();
     if (disableAnimation == false) {
       mm.add("(min-width: 769px)", () => {
         gsap.set(".logo", {

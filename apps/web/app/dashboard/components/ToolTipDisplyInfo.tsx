@@ -6,7 +6,7 @@ import {
 import { TooltipProvider } from "@radix-ui/react-tooltip";
 import { CiCircleInfo } from "react-icons/ci";
 
-export const ToolTipDisplyInfo = ({ description }: { description: String }) => {
+export const ToolTipDisplyInfo = ({ description }: { description: string }) => {
   return (
     <TooltipProvider>
       <Tooltip>

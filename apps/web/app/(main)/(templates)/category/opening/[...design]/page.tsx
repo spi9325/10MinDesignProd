@@ -8,7 +8,7 @@ import { Main_Loader } from "@/components/Main_Loader";
 
 export default function DesignsPage() {
   const params = useParams();
-  let slug = params.design?.[0];
+  const slug = params.design?.[0];
   const DynamicComponent = dynamic(
     () =>
       import(
