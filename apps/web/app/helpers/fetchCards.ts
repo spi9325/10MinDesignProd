@@ -21,6 +21,7 @@ export async function fetchCards(
       items,
       categoryName,
     },
+    {withCredentials:true}
   );
   console.log(res2)
   return res.data;
