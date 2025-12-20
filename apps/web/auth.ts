@@ -5,7 +5,6 @@ import NextAuth, { CredentialsSignin, type NextAuthConfig } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import Google from "next-auth/providers/google";
 import { getUrl } from "./lib/url-conf";
-import { test } from "./lib/test";
 
 const config: NextAuthConfig = {
   secret: process.env.AUTH_SECRET,
@@ -118,25 +117,25 @@ const config: NextAuthConfig = {
 
   // custome cookie for my error in be req.cookie is null cheking this work orr noy
 
-  useSecureCookies: process.env.AUTH == "dev" ? false : true,
+  useSecureCookies: process.env.NODE_ENV === "development" ? false : true,
   cookies: {
     sessionToken: {
       name:
-        process.env.AUTH == "dev"
+        process.env.NODE_ENV === "development"
           ? "authjs.session-token"
           : "__Secure-authjs.session-token",
       options: {
         httpOnly: true,
-        sameSite: process.env.AUTH == "dev" ? "lax" : "lax",
+        sameSite: process.env.NODE_ENV === "development" ? "lax" : "lax",
         path: "/",
-        secure: process.env.AUTH == "dev" ? false : true,
-        domain: ".10mindesigns.shop"
+        secure: process.env.NODE_ENV === "development" ? false : true,
+        domain: process.env.COOKIE_DOMAIN
           
       },
     },
   },
 };
-console.log(test(),"000000")
+
 const nextAuth = NextAuth(config);
 
 export const handlers = nextAuth.handlers;
