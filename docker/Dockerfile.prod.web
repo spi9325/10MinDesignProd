@@ -24,7 +24,6 @@ ENV imagekit_URL="https://ik.imagekit.io/10MinDesign"
  
 RUN pnpm turbo build
  
-
 FROM base AS runner
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
