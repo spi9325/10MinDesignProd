@@ -7,8 +7,6 @@ import Google from "next-auth/providers/google";
 import { getUrl } from "./lib/url-conf";
 
 
-const isProd = process.env.AUTH_ENV === "production";
-
 const config: NextAuthConfig = {
   secret: process.env.AUTH_SECRET,
   providers: [
@@ -121,18 +119,18 @@ const config: NextAuthConfig = {
   // custome cookie for my error in be req.cookie is null cheking this work orr noy
 
   
-  useSecureCookies: isProd ? false : true,
+  useSecureCookies: process.env.NODE_ENV == "development" ? false : true,
   cookies: {
     sessionToken: {
       name:
-        isProd
+        process.env.NODE_ENV == "development"
           ? "authjs.session-token"
           : "__Secure-authjs.session-token",
       options: {
         httpOnly: true,
-        sameSite: isProd ? "lax" : "lax",
+        sameSite: process.env.NODE_ENV == "development" ? "lax" : "lax",
         path: "/",
-        secure: isProd ? false : true,
+        secure: process.env.NODE_ENV == "development" ? false : true,
         domain: ".10mindesigns.shop"
          
       },
