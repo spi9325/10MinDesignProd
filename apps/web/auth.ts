@@ -129,7 +129,7 @@ const config: NextAuthConfig = {
         httpOnly: true,
         sameSite: process.env.AUTH == "dev" ? "lax" : "lax",
         path: "/",
-        secure: process.env.AUTH == "dev" ? false : false,
+        secure: process.env.AUTH == "dev" ? false : true,
         domain: ".10mindesigns.shop"
           
       },
