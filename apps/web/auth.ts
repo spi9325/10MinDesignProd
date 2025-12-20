@@ -5,7 +5,7 @@ import NextAuth, { CredentialsSignin, type NextAuthConfig } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import Google from "next-auth/providers/google";
 import { getUrl } from "./lib/url-conf";
-
+import { test } from "./lib/test";
 
 const config: NextAuthConfig = {
   secret: process.env.AUTH_SECRET,
@@ -34,7 +34,7 @@ const config: NextAuthConfig = {
             cause: validInput.error.errors[0]?.message + "....",
           });
         }
-        const url = getUrl("SSR_BACKEND_URL");
+        const url = getUrl();
         const user = await axios.post(`${url}/verify/user`, { email });
         if (!user) {
           throw new CredentialsSignin("Invalid credentials.", {
@@ -72,7 +72,7 @@ const config: NextAuthConfig = {
         if (!email) {
           throw new Error("Invalid email");
         }
-        const url = getUrl("SSR_BACKEND_URL");
+        const url = getUrl();
         const res = await axios.post(`${url}/add/user`, {
           email,
           id,
@@ -103,7 +103,7 @@ const config: NextAuthConfig = {
       return session;
     },
     async jwt({ token }) {
-      const url = getUrl("SSR_BACKEND_URL");
+      const url = getUrl();
       const existing_user = await axios.post(`${url}/verify/user`, {
         email: token.email,
         customeData: "select only id and role",
@@ -118,26 +118,25 @@ const config: NextAuthConfig = {
 
   // custome cookie for my error in be req.cookie is null cheking this work orr noy
 
-  
-  useSecureCookies: getUrl("authenv") == "development" ? false : true,
+  useSecureCookies: test() == "development" ? false : true,
   cookies: {
     sessionToken: {
       name:
-        getUrl("authenv") == "development"
+        test() == "development"
           ? "authjs.session-token"
-          : "secure-authjs.session-token",
+          : "__Secure-authjs.session-token",
       options: {
         httpOnly: true,
-        sameSite: getUrl("authenv") == "development" ? "lax" : "lax",
+        sameSite: test() == "development" ? "lax" : "lax",
         path: "/",
-        secure: getUrl("authenv") == "development" ? false : true,
+        secure: test() == "development" ? false : true,
         domain: ".10mindesigns.shop"
-         
+          
       },
     },
   },
 };
-console.log(getUrl("authenv"),"))))))))))))))))))))))))))000)")
+console.log(test(),"000000")
 const nextAuth = NextAuth(config);
 
 export const handlers = nextAuth.handlers;
