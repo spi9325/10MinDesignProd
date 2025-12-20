@@ -34,7 +34,7 @@ const config: NextAuthConfig = {
             cause: validInput.error.errors[0]?.message + "....",
           });
         }
-        const url = getUrl();
+        const url = getUrl("SSR_BACKEND_URL");
         const user = await axios.post(`${url}/verify/user`, { email });
         if (!user) {
           throw new CredentialsSignin("Invalid credentials.", {
@@ -72,7 +72,7 @@ const config: NextAuthConfig = {
         if (!email) {
           throw new Error("Invalid email");
         }
-        const url = getUrl();
+        const url = getUrl("SSR_BACKEND_URL");
         const res = await axios.post(`${url}/add/user`, {
           email,
           id,
@@ -103,7 +103,7 @@ const config: NextAuthConfig = {
       return session;
     },
     async jwt({ token }) {
-      const url = getUrl();
+      const url = getUrl("SSR_BACKEND_URL");
       const existing_user = await axios.post(`${url}/verify/user`, {
         email: token.email,
         customeData: "select only id and role",
