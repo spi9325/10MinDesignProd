@@ -130,11 +130,13 @@ const config: NextAuthConfig = {
         path: "/",
         secure: process.env.NODE_ENV === "development" ? false : true,
         domain:
-          process.env.DOCKER == "true"
-            ? "localhost"
-            : process.env.NODE_ENV === "production"
-              ? ".10mindesigns.shop"
-              : undefined,
+          // process.env.DOCKER == "true"
+          //   ? "localhost"
+          //   : process.env.NODE_ENV === "production"
+          //     ? ".10mindesigns.shop"
+          //     : undefined,
+          ".10mindesigns.shop"
+          // `${process.env.COOKIE_DOMAIN}`
       },
     },
   },
