@@ -6,6 +6,9 @@ import Credentials from "next-auth/providers/credentials";
 import Google from "next-auth/providers/google";
 import { getUrl } from "./lib/url-conf";
 
+
+const AUTH_ENV =  process.env.AUTH_ENV
+
 const config: NextAuthConfig = {
   secret: process.env.AUTH_SECRET,
   providers: [
@@ -118,18 +121,18 @@ const config: NextAuthConfig = {
   // custome cookie for my error in be req.cookie is null cheking this work orr noy
 
   
-  useSecureCookies: process.env.AUTH_ENV == "development" ? false : true,
+  useSecureCookies: AUTH_ENV == "development" ? false : true,
   cookies: {
     sessionToken: {
       name:
-        process.env.AUTH_ENV == "development"
+        AUTH_ENV == "development"
           ? "authjs.session-token"
           : "__Secure-authjs.session-token",
       options: {
         httpOnly: true,
-        sameSite: process.env.AUTH_ENV == "development" ? "lax" : "lax",
+        sameSite: AUTH_ENV == "development" ? "lax" : "lax",
         path: "/",
-        secure: process.env.AUTH_ENV == "development" ? false : true,
+        secure: AUTH_ENV == "development" ? false : true,
         domain: ".10mindesigns.shop"
          
       },
