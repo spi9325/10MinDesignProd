@@ -117,6 +117,7 @@ const config: NextAuthConfig = {
 
   // custome cookie for my error in be req.cookie is null cheking this work orr noy
 
+  
   useSecureCookies: `${process.env.AUTH_ENV}` == "local" ? false : true,
   cookies: {
     sessionToken: {
@@ -135,7 +136,7 @@ const config: NextAuthConfig = {
     },
   },
 };
-
+console.log(process.env.AUTH_ENV,")))))))))))))))))))))))",process.env.COOKIE_DOMAIN)
 const nextAuth = NextAuth(config);
 
 export const handlers = nextAuth.handlers;
