@@ -7,7 +7,7 @@ import Google from "next-auth/providers/google";
 import { getUrl } from "./lib/url-conf";
 
 
-const isProd = process.env.AUTH_ENV!.toString() === "production";
+const isProd = process.env.AUTH_ENV === "production";
 
 const config: NextAuthConfig = {
   secret: process.env.AUTH_SECRET,
