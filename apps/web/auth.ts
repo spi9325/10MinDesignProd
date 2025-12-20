@@ -121,21 +121,21 @@ const config: NextAuthConfig = {
   cookies: {
     sessionToken: {
       name:
-        `development` == "development"
+        process.env.AUTH_ENV == "development"
           ? "authjs.session-token"
           : "__Secure-authjs.session-token",
       options: {
         httpOnly: true,
-        sameSite: `development` == "development" ? "lax" : "lax",
+        sameSite: process.env.AUTH_ENV == "development" ? "lax" : "lax",
         path: "/",
-        secure: "development" == "development" ? false : true,
-        domain:".10mindesigns.shop"
-          // process.env.DOCKER == "true"
-          //   ? "localhost"
-          //   : process.env.NODE_ENV === "production"
-          //     ? ".10mindesigns.shop"
-          //     : undefined,
-          // `${process.env.COOKIE_DOMAIN}`
+        secure: process.env.AUTH_ENV == "development" ? false : true,
+        domain:
+          process.env.DOCKER == "true"
+            ? "localhost"
+            : process.env.AUTH_ENV === "production"
+              ? ".10mindesigns.shop"
+              : undefined,
+          
       },
     },
   },
