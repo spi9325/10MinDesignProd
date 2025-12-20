@@ -118,18 +118,18 @@ const config: NextAuthConfig = {
 
   // custome cookie for my error in be req.cookie is null cheking this work orr noy
 
-  useSecureCookies: test() == "development" ? false : true,
+  useSecureCookies: test() == "dev" ? false : true,
   cookies: {
     sessionToken: {
       name:
-        test() == "development"
+        test() == "dev"
           ? "authjs.session-token"
           : "__Secure-authjs.session-token",
       options: {
         httpOnly: true,
-        sameSite: test() == "development" ? "lax" : "lax",
+        sameSite: test() == "dev" ? "lax" : "lax",
         path: "/",
-        secure: test() == "development" ? false : true,
+        secure: test() == "dev" ? false : false,
         domain: ".10mindesigns.shop"
           
       },
