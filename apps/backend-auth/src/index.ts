@@ -17,7 +17,7 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: [`${FRONTEND_URL}`, "http://web:3000","http://fee.10mindesigns.shop:80"],
+    origin: [`${FRONTEND_URL}`, "http://web:3000","http://fee.10mindesigns.shop"],
     credentials: true,
   }),
 );
