@@ -137,7 +137,7 @@ const config: NextAuthConfig = {
     },
   },
 };
-console.log(getUrl("authenv"),")))))))))))))))))))))))))))")
+console.log(getUrl("authenv"),"))))))))))))))))))))))))))000)")
 const nextAuth = NextAuth(config);
 
 export const handlers = nextAuth.handlers;
