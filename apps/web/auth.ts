@@ -135,7 +135,7 @@ const config: NextAuthConfig = {
           //   : process.env.NODE_ENV === "production"
           //     ? ".10mindesigns.shop"
           //     : undefined,
-          "fee.10mindesigns.shop"
+          ".10mindesigns.shop"
           // `${process.env.COOKIE_DOMAIN}`
       },
     },
