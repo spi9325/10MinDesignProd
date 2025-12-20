@@ -130,7 +130,7 @@ const config: NextAuthConfig = {
         sameSite: "development" == "development" ? "lax" : "lax",
         path: "/",
         secure: "development" == "development" ? false : true,
-        domain: `${process.env.COOKIE_DOMAIN}`
+        domain: ".10mindesigns.shop"
          
       },
     },
