@@ -119,25 +119,25 @@ const config: NextAuthConfig = {
   // custome cookie for my error in be req.cookie is null cheking this work orr noy
 
   
-  useSecureCookies: process.env.NEXT_PUBLIC_NODE_ENV == "development" ? false : true,
+  useSecureCookies: getUrl("authenv") == "development" ? false : true,
   cookies: {
     sessionToken: {
       name:
-        process.env.NEXT_PUBLIC_NODE_ENV == "development"
+        getUrl("authenv") == "development"
           ? "authjs.session-token"
           : "secure-authjs.session-token",
       options: {
         httpOnly: true,
-        sameSite: process.env.NEXT_PUBLIC_NODE_ENV == "development" ? "lax" : "lax",
+        sameSite: getUrl("authenv") == "development" ? "lax" : "lax",
         path: "/",
-        secure: process.env.NEXT_PUBLIC_NODE_ENV == "development" ? false : true,
+        secure: getUrl("authenv") == "development" ? false : true,
         domain: ".10mindesigns.shop"
          
       },
     },
   },
 };
-console.log(process.env.AUTH_ENV,")))))))))))))))))))))))",process.env.COOKIE_DOMAIN)
+console.log(getUrl("authenv"),")))))))))))))))))))))))))))")
 const nextAuth = NextAuth(config);
 
 export const handlers = nextAuth.handlers;

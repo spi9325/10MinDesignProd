@@ -21,7 +21,6 @@ COPY --from=prepare /app/out/full/ .
 
 ENV NEXT_PUBLIC_Backend_URL="http://bee.10mindesigns.shop"
 ENV imagekit_URL="https://ik.imagekit.io/10MinDesign"
-ENV NEXT_PUBLIC_NODE_ENV="development"
 RUN pnpm turbo build
  
 FROM base AS runner
