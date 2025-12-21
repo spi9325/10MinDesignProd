@@ -142,3 +142,4 @@ export const handlers = nextAuth.handlers;
 export const signIn: typeof nextAuth.signIn = nextAuth.signIn;
 export const signOut: typeof nextAuth.signOut = nextAuth.signOut;
 export const auth: typeof nextAuth.auth = nextAuth.auth;
+
